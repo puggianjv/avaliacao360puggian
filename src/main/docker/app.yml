@@ -1,0 +1,22 @@
+version: '2'
+services:
+    avaliacao360puggian-app:
+        image: avaliacao360puggian
+        external_links:
+            - avaliacao360puggian-postgresql:postgresql
+            - avaliacao360puggian-elasticsearch:elasticsearch
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/avaliacao360puggian
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=elasticsearch:9300
+        ports:
+            - 8080:8080
+    avaliacao360puggian-postgresql:
+        extends:
+            file: postgresql.yml
+            service: avaliacao360puggian-postgresql
+    avaliacao360puggian-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: avaliacao360puggian-elasticsearch

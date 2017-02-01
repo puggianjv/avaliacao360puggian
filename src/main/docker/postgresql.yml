@@ -1,0 +1,12 @@
+version: '2'
+services:
+    avaliacao360puggian-postgresql:
+        container_name: avaliacao360puggian-postgresql
+        image: postgres:9.5.4
+        # volumes:
+        #     - ~/volumes/jhipster/avaliacao360puggian/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=avaliacao360puggian
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
