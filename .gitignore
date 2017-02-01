@@ -106,7 +106,7 @@ Desktop.ini
 ######################
 /build/
 /bin/
-/deploy/
+##/deploy/
 
 ######################
 # Logs
